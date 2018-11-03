@@ -40,12 +40,10 @@ public class BottomNavigationItemBuilder {
         private int iconNormal = ICON_NORMAL;
         private int iconSelected = ICON_SELECTED;
         private int iconSize = ICON_SIZE;
-        private int normalTint=-1;
-        private int selectedTint=-1;
-
+        private int normalTint = -1;
+        private int selectedTint = -1;
         private boolean isRipple = true;
         private boolean isIconAnim = true;
-
 
         private Context context;
 
@@ -58,7 +56,7 @@ public class BottomNavigationItemBuilder {
             return this;
         }
 
-        public Builder tint(@ColorInt int normalTint,@ColorInt int selectedTint) {
+        public Builder tint(@ColorInt int normalTint, @ColorInt int selectedTint) {
             this.normalTint = normalTint;
             this.selectedTint = selectedTint;
             return this;
@@ -75,7 +73,7 @@ public class BottomNavigationItemBuilder {
             return this;
         }
 
-        public Builder icon( int normal,  int selected) {
+        public Builder icon(int normal, int selected) {
             this.iconNormal = normal;
             this.iconSelected = selected;
             return this;
@@ -100,6 +98,7 @@ public class BottomNavigationItemBuilder {
         public Builder fragment() {
             return this;
         }
+
         public BottomNavigationItemBuilder build() {
             return new BottomNavigationItemBuilder(this);
         }
