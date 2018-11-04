@@ -87,6 +87,7 @@
     setOnReselectListener(OnReselectListener)
     defaultSelected(int)
     bgColor(int)
+    navigationHeight(int)
     
 #### 不设置icon()
 <div  >
