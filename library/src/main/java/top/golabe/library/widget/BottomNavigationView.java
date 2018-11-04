@@ -120,8 +120,9 @@ public class BottomNavigationView extends LinearLayout {
         for (int i = 0; i < getChildCount(); ++i) {
             BottomNavigationItem item = (BottomNavigationItem) getChildAt(i);
             final boolean isSelect = i == position;
-            item.mIconView.setImageResource(isSelect ? iconSelected.get(i) : iconNormal.get(i));
-            item.mTitleView.setTextColor(isSelect ? titleColorSelected.get(i) : titleColorNormal.get(i));
+
+            item.setImageRes(isSelect ? iconSelected.get(i) : iconNormal.get(i));
+            item.setTitleColor(isSelect ? titleColorSelected.get(i) : titleColorNormal.get(i));
             item.setImageTint(isSelect ? iconSelected.get(i) : iconNormal.get(i), isSelect ? selectedTint.get(i) : normalTint.get(i));
         }
     }

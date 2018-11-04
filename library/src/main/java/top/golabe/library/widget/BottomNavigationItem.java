@@ -34,7 +34,6 @@ public class BottomNavigationItem extends LinearLayout {
     public TextView mTitleView;
 
 
-
     public String getTitle() {
         return title;
     }
@@ -150,6 +149,15 @@ public class BottomNavigationItem extends LinearLayout {
         addView(view, params);
     }
 
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if (iconNormal==DEFAULT_VALUE||iconSelected==DEFAULT_VALUE){
+            mIconView.setVisibility(GONE);
+        }else {
+            mIconView.setVisibility(VISIBLE);
+        }
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -166,16 +174,26 @@ public class BottomNavigationItem extends LinearLayout {
     }
 
 
+    public void setImageTint(int drawId, int color) {
 
-    public void setImageTint(int drawId,int color) {
-
-        if (mIconView!=null&&color!=DEFAULT_VALUE){
-            Drawable up = ContextCompat.getDrawable(getContext(),drawId);
-            Drawable drawableUp= DrawableCompat.wrap(up);
+        if (mIconView != null && color != DEFAULT_VALUE&&drawId!=DEFAULT_VALUE) {
+            Drawable up = ContextCompat.getDrawable(getContext(), drawId);
+            Drawable drawableUp = DrawableCompat.wrap(up);
             DrawableCompat.setTint(drawableUp, color);
             mIconView.setImageDrawable(drawableUp);
         }
 
     }
 
+    public void setImageRes(int resId) {
+        if (mIconView != null && resId != DEFAULT_VALUE) {
+            mIconView.setImageResource(resId);
+        }
+    }
+
+    public void setTitleColor(int color) {
+        if (mTitleView != null && color != DEFAULT_VALUE) {
+            mTitleView.setTextColor(color);
+        }
+    }
 }
