@@ -3,7 +3,6 @@ package top.golabe.bottomnavigation;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import top.golabe.library.widget.BottomNavigationItemBuilder;
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOnReselectListener(new OnReselectListener() {
                     @Override
                     public void onReselect(int position) {
-                        Toast.makeText(MainActivity.this,"再次选中"+position,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "再次选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
                 .bgColor(Color.WHITE)
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
                     @Override
                     public void onNavigationItemSelected(int position) {
-                        Toast.makeText(MainActivity.this,"选中"+position,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
                 .navigationHeight(52F)
