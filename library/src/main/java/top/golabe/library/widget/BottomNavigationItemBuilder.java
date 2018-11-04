@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.annotation.ColorInt;
 
 import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
+import static top.golabe.library.DefaultValue.DEFAULT_ICON_SIZE;
+import static top.golabe.library.DefaultValue.DEFAULT_TITLE_SIZE;
 
 public class BottomNavigationItemBuilder {
 
@@ -31,19 +33,17 @@ public class BottomNavigationItemBuilder {
 
 
     public static class Builder {
-        private final float TITLE_SIZE = 12F;
-        private final int ICON_NORMAL = DEFAULT_VALUE;
-        private final int ICON_SELECTED = DEFAULT_VALUE;
-        private final int ICON_SIZE = 24;
+
         private String title = "";
-        private float titleSize = TITLE_SIZE;
+        private float titleSize = DEFAULT_TITLE_SIZE;
         private int titleColorNormal =DEFAULT_VALUE;
         private int titleColorSelected =DEFAULT_VALUE;
-        private int iconNormal = ICON_NORMAL;
-        private int iconSelected = ICON_SELECTED;
-        private int iconSize = ICON_SIZE;
+        private int iconNormal = DEFAULT_VALUE;
+        private int iconSelected = DEFAULT_VALUE;
+        private int iconSize = DEFAULT_ICON_SIZE;
         private int normalTint = DEFAULT_VALUE;
         private int selectedTint = DEFAULT_VALUE;
+
         private boolean isRipple = true;
         private boolean isIconAnim = true;
 

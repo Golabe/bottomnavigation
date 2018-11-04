@@ -11,6 +11,8 @@ import java.util.List;
 import top.golabe.library.callback.OnNavigationItemSelectedListener;
 import top.golabe.library.callback.OnReselectListener;
 
+import static top.golabe.library.DefaultValue.DEFAULT_NAVIGATION_HEIGHT;
+import static top.golabe.library.DefaultValue.DEFAULT_SELECTED;
 import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
 
 public class BottomNavigationViewBuilder {
@@ -35,10 +37,10 @@ public class BottomNavigationViewBuilder {
         private BottomNavigationView bottomNavigationView;
         private List<BottomNavigationItemBuilder> items = new ArrayList<>();
         private WeakReference<Activity> activity;
-        private int defaultSelected = 0;
+        private int defaultSelected = DEFAULT_SELECTED;
         private OnNavigationItemSelectedListener onNavigationItemSelectedListener;
         private OnReselectListener onReselectListener;
-        private float navigationHeight = 52f;
+        private float navigationHeight = DEFAULT_NAVIGATION_HEIGHT;
         private int bgColor =DEFAULT_VALUE;
 
         public Builder(Activity activity) {
@@ -71,10 +73,6 @@ public class BottomNavigationViewBuilder {
 
         public Builder setOnReselectListener(OnReselectListener listener) {
             this.onReselectListener = listener;
-            return this;
-        }
-
-        public Builder finishRefresh(int position) {
             return this;
         }
 

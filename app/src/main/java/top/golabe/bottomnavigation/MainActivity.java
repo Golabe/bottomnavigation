@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import top.golabe.library.widget.BottomNavigationItemBuilder;
 import top.golabe.library.widget.BottomNavigationViewBuilder;
@@ -20,43 +21,42 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewBuilder navigationViewBuilder = new BottomNavigationViewBuilder.Builder(this)
                 .findView(R.id.bnv_bottom_navigation_view)
                 .addItem(new BottomNavigationItemBuilder.Builder(this)
-                        .title("Home")
-                        .tint(Color.RED,Color.BLACK)
-                        .icon(R.mipmap.a1, R.mipmap.a2)
-                        .titleColor(Color.GRAY, Color.BLACK)
-                        .fragment()
+                        .title("精选")
+                        .icon(R.mipmap.auslese, R.mipmap.auslese)
+                        .tint(Color.parseColor("#8a8a8a"), Color.parseColor("#2c2c2c"))
+                        .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
                         .build())
                 .addItem(new BottomNavigationItemBuilder.Builder(this)
-                        .titleColor(Color.GRAY, Color.BLACK)
-                        .title("Find")
-                        .icon(R.mipmap.b1, R.mipmap.b2)
-                        .fragment()
+                        .tint(Color.parseColor("#8a8a8a"), Color.parseColor("#2c2c2c"))
+                        .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
+                        .title("Search")
+                        .icon(R.mipmap.search, R.mipmap.search)
                         .build())
                 .addItem(new BottomNavigationItemBuilder.Builder(this)
                         .title("Map")
-                        .titleColor(Color.GRAY, Color.BLACK)
-                        .icon(R.mipmap.c1, R.mipmap.c2)
-                        .fragment()
+                        .tint(Color.parseColor("#8a8a8a"), Color.parseColor("#2c2c2c"))
+                        .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
+                        .icon(R.mipmap.map, R.mipmap.map)
                         .build())
                 .addItem(new BottomNavigationItemBuilder.Builder(this)
                         .title("Me")
-                        .titleColor(Color.GRAY, Color.BLACK)
-                        .icon(R.mipmap.d1, R.mipmap.d2)
-                        .fragment()
+                        .tint(Color.parseColor("#8a8a8a"), Color.parseColor("#2c2c2c"))
+                        .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
+                        .icon(R.mipmap.me, R.mipmap.me)
                         .build())
                 .defaultSelected(0)
                 .setOnReselectListener(new OnReselectListener() {
                     @Override
                     public void onReselect(int position) {
-                        Log.d(TAG, "onReselect: " + position);
+                        Toast.makeText(MainActivity.this,"再次选中"+position,Toast.LENGTH_SHORT).show();
                     }
                 })
-                .bgColor(Color.BLUE)
-                .finishRefresh(0)
+                .bgColor(Color.WHITE)
+
                 .setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
                     @Override
                     public void onNavigationItemSelected(int position) {
-                        Log.d(TAG, "onNavigationItemSelected: " + position);
+                        Toast.makeText(MainActivity.this,"选中"+position,Toast.LENGTH_SHORT).show();
                     }
                 })
                 .navigationHeight(52F)
