@@ -70,4 +70,22 @@
                 .build();
 ```
 
-## 属性
+## 方法
+
+### BottomNavigationItemBuilder 方法
+    title(String)
+    tint(int,int)
+    titleSize(float)
+    titleColor(int,int)
+    icon(int,int)
+    iconSize(float)
+
+### BottomNavigationViewBuilder 方法
+    findView(int)
+    addItem(BottomNavigationItemBuilder)
+    setOnNavigationItemSelectedListener(OnNavigationItemSelectedListener)
+    setOnReselectListener(OnReselectListener)
+    defaultSelected(int)
+    bgColor(int)
+
+
