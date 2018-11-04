@@ -2,7 +2,7 @@ package top.golabe.library.utils;
 
 import android.content.Context;
 
-public class Diments {
+public class Dimens {
 
     public static int dp2px(Context context,float dp){
         float v = context.getResources().getDisplayMetrics().density;

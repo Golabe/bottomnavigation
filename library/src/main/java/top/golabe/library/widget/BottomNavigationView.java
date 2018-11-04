@@ -12,7 +12,9 @@ import java.util.List;
 
 import top.golabe.library.callback.OnNavigationItemSelectedListener;
 import top.golabe.library.callback.OnReselectListener;
-import top.golabe.library.utils.Diments;
+import top.golabe.library.utils.Dimens;
+
+import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
 
 public class BottomNavigationView extends LinearLayout {
     private static final String TAG = "BottomNavigationView";
@@ -144,7 +146,7 @@ public class BottomNavigationView extends LinearLayout {
         int w = MeasureSpec.getSize(widthMeasureSpec);
         int h = MeasureSpec.getSize(heightMeasureSpec);
         if (hModel == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(w, Diments.dp2px(getContext(), navigationHeight));
+            setMeasuredDimension(w, Dimens.dp2px(getContext(), navigationHeight));
         } else {
             setMeasuredDimension(w, h);
         }
@@ -155,7 +157,7 @@ public class BottomNavigationView extends LinearLayout {
     }
 
     public void setBgColor(int bgColor) {
-        if (bgColor != -1) {
+        if (bgColor != DEFAULT_VALUE) {
             setBackgroundColor(bgColor);
         }
     }

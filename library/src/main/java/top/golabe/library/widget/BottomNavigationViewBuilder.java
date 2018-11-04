@@ -11,6 +11,8 @@ import java.util.List;
 import top.golabe.library.callback.OnNavigationItemSelectedListener;
 import top.golabe.library.callback.OnReselectListener;
 
+import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
+
 public class BottomNavigationViewBuilder {
     private static final String TAG = "BottomNavigationViewBui";
     private BottomNavigationView mBnView;
@@ -37,7 +39,7 @@ public class BottomNavigationViewBuilder {
         private OnNavigationItemSelectedListener onNavigationItemSelectedListener;
         private OnReselectListener onReselectListener;
         private float navigationHeight = 52f;
-        private int bgColor =-1;
+        private int bgColor =DEFAULT_VALUE;
 
         public Builder(Activity activity) {
             this.activity = new WeakReference<>(activity);

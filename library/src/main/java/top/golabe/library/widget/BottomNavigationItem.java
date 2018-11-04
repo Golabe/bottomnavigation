@@ -1,7 +1,6 @@
 package top.golabe.library.widget;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
@@ -15,7 +14,9 @@ import android.widget.TextView;
 
 
 import top.golabe.library.R;
-import top.golabe.library.utils.Diments;
+import top.golabe.library.utils.Dimens;
+
+import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
 
 public class BottomNavigationItem extends LinearLayout {
     private String title;
@@ -98,7 +99,7 @@ public class BottomNavigationItem extends LinearLayout {
 
     public void setIconSize(int iconSize) {
         this.iconSize = iconSize;
-        int size = Diments.dp2px(getContext(), iconSize);
+        int size = Dimens.dp2px(getContext(), iconSize);
         mIconView.setLayoutParams(new LayoutParams(size, size));
     }
 
@@ -168,7 +169,7 @@ public class BottomNavigationItem extends LinearLayout {
 
     public void setImageTint(int drawId,int color) {
 
-        if (mIconView!=null&&color!=-1){
+        if (mIconView!=null&&color!=DEFAULT_VALUE){
             Drawable up = ContextCompat.getDrawable(getContext(),drawId);
             Drawable drawableUp= DrawableCompat.wrap(up);
             DrawableCompat.setTint(drawableUp, color);

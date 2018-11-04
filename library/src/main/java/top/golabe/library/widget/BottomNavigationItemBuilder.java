@@ -3,6 +3,8 @@ package top.golabe.library.widget;
 import android.content.Context;
 import android.support.annotation.ColorInt;
 
+import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
+
 public class BottomNavigationItemBuilder {
 
     private BottomNavigationItem mBottomNavigationItem;
@@ -30,18 +32,18 @@ public class BottomNavigationItemBuilder {
 
     public static class Builder {
         private final float TITLE_SIZE = 12F;
-        private final int ICON_NORMAL = -100;
-        private final int ICON_SELECTED = -100;
+        private final int ICON_NORMAL = DEFAULT_VALUE;
+        private final int ICON_SELECTED = DEFAULT_VALUE;
         private final int ICON_SIZE = 24;
         private String title = "";
         private float titleSize = TITLE_SIZE;
-        private int titleColorNormal = -1;
-        private int titleColorSelected = -1;
+        private int titleColorNormal =DEFAULT_VALUE;
+        private int titleColorSelected =DEFAULT_VALUE;
         private int iconNormal = ICON_NORMAL;
         private int iconSelected = ICON_SELECTED;
         private int iconSize = ICON_SIZE;
-        private int normalTint = -1;
-        private int selectedTint = -1;
+        private int normalTint = DEFAULT_VALUE;
+        private int selectedTint = DEFAULT_VALUE;
         private boolean isRipple = true;
         private boolean isIconAnim = true;
 
