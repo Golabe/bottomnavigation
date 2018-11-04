@@ -87,5 +87,15 @@
     setOnReselectListener(OnReselectListener)
     defaultSelected(int)
     bgColor(int)
+    
+#### 不设置icon()
+<div  >
+<image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/no_icon.png?raw=true" width="240"/></div>
+
+
+#### 不设置title()
+<div  >
+<image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/no_title.png?raw=true" width="240"/>
+</div>
 
 
