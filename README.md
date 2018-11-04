@@ -1,4 +1,4 @@
-# BottomNavigationView 底部导航栏 第一次写代码有点乱
+# BottomNavigationView 底部导航栏 第一次写,代码有点垃圾
 
 <div align="center">
 <image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/description.gif?raw=true"/ width="260">
