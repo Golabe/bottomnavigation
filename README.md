@@ -8,11 +8,17 @@
 ## 使用
 在xml布局里面添加 BottomNavigationView容器
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_above="@id/bnv_bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <top.golabe.library.widget.BottomNavigationView
         android:elevation="@dimen/bottom_navigation_elevation"
         android:id="@+id/bnv_bottom_navigation_view"
@@ -66,6 +72,7 @@
                         Toast.makeText(MainActivity.this, "选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
+                .fragments(R.id.fl_container,FragmentA.class,FragmentB.class,FragmentC.class,FragmentD.class)
                 .navigationHeight(52F)
                 .build();
 ```
