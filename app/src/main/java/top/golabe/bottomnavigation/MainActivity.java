@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationViewBuilder navigationViewBuilder = new BottomNavigationViewBuilder.Builder(this)
+        final BottomNavigationViewBuilder navigationViewBuilder = new BottomNavigationViewBuilder.Builder(this)
                 .findView(R.id.bnv_bottom_navigation_view)
                 .addItem(new BottomNavigationItemBuilder.Builder(this)
                         .title("精选")
@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                         .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
                         .icon(R.mipmap.me, R.mipmap.me)
                         .build())
-                .defaultSelected(0)
                 .setOnReselectListener(new OnReselectListener() {
                     @Override
                     public void onReselect(int position) {
@@ -62,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
+                .fragment(R.id.fl_container,FragmentA.class,FragmentB.class,FragmentC.class,FragmentD.class)
+                .defaultSelected(2)
                 .navigationHeight(52F)
                 .build();
 

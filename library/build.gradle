@@ -1,5 +1,19 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+publish {
+    def groupProjectID = 'top.golabe.library.bottomnavigationview'
+    def artifactProjectID = 'BottomNavigationView'
+    def publishVersionID = '1.0.0'
 
+    userOrg = 'allenyue'
+    repoName = 'maven'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'A android  project with BottomNavigationView'
+    website = 'https://github.com/Golabe/bottomnavigation'
+
+}
 android {
     compileSdkVersion 28
 
@@ -31,4 +45,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    implementation "android.arch.work:work-runtime:1.0.0-alpha10"
 }

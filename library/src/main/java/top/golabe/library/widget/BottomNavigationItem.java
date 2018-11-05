@@ -184,13 +184,11 @@ public class BottomNavigationItem extends LinearLayout {
         }
 
     }
-
     public void setImageRes(int resId) {
         if (mIconView != null && resId != DEFAULT_VALUE) {
             mIconView.setImageResource(resId);
         }
     }
-
     public void setTitleColor(int color) {
         if (mTitleView != null && color != DEFAULT_VALUE) {
             mTitleView.setTextColor(color);

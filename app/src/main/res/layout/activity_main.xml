@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_above="@id/bnv_bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <top.golabe.library.widget.BottomNavigationView
         android:elevation="@dimen/bottom_navigation_elevation"
         android:id="@+id/bnv_bottom_navigation_view"

@@ -22,10 +22,6 @@ public class BottomNavigationView extends LinearLayout {
     private int defaultSelected;
     private BottomNavigationItem itemView;
 
-    public float getNavigationHeight() {
-        return navigationHeight;
-    }
-
     public void setNavigationHeight(float navigationHeight) {
         this.navigationHeight = navigationHeight;
         invalidate();
@@ -120,7 +116,6 @@ public class BottomNavigationView extends LinearLayout {
         for (int i = 0; i < getChildCount(); ++i) {
             BottomNavigationItem item = (BottomNavigationItem) getChildAt(i);
             final boolean isSelect = i == position;
-
             item.setImageRes(isSelect ? iconSelected.get(i) : iconNormal.get(i));
             item.setTitleColor(isSelect ? titleColorSelected.get(i) : titleColorNormal.get(i));
             item.setImageTint(isSelect ? iconSelected.get(i) : iconNormal.get(i), isSelect ? selectedTint.get(i) : normalTint.get(i));
@@ -160,6 +155,15 @@ public class BottomNavigationView extends LinearLayout {
     public void setBgColor(int bgColor) {
         if (bgColor != DEFAULT_VALUE) {
             setBackgroundColor(bgColor);
+        }
+    }
+
+
+    public void addItemView(List<BottomNavigationItemBuilder> items) {
+        for (int i = 0; i < items.size(); i++) {
+            BottomNavigationItem bottomNavigationItem = items.get(i).getBottomNavigationItem();
+            addView(bottomNavigationItem, i);
+
         }
     }
 }
