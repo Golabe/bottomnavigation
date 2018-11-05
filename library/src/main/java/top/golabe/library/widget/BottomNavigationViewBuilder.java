@@ -52,13 +52,16 @@ public class BottomNavigationViewBuilder {
             if (builder.items.size() == fragments.size()) {
                 initFragments();
             }
-        } else throw new RuntimeException("Items size and fragments  size are not equal");
+        }
 
         mBnView.setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
             @Override
             public void onNavigationItemSelected(int position) {
-                if (fragments != null && fragments.size() >= 0) {
-                    switchFragment(position);
+
+                if (fragments != null && fragments.size() > 0) {
+                    if (builder.items.size() == fragments.size()) {
+                        switchFragment(position);
+                    }
                 }
                 if (onNavigationItemSelectedListener != null) {
                     onNavigationItemSelectedListener.onNavigationItemSelected(position);
@@ -175,7 +178,7 @@ public class BottomNavigationViewBuilder {
             return this;
         }
 
-        public Builder fragment(@IdRes int containerId, Class... fragments) {
+        public Builder fragments(@IdRes int containerId, Class... fragments) {
             this.containerId = containerId;
             this.fragments.addAll(Arrays.asList(fragments));
             return this;
