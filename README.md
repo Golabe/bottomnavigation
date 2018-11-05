@@ -1,4 +1,4 @@
-# BottomNavigationView 底部导航栏 第一次写代码有点乱
+# BottomNavigationView 底部导航栏 第一次写,代码有点垃圾
 
 <div align="center">
 <image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/description.gif?raw=true"/ width="260">
@@ -87,5 +87,16 @@
     setOnReselectListener(OnReselectListener)
     defaultSelected(int)
     bgColor(int)
+    navigationHeight(int)
+    
+#### 不设置icon()
+<div  >
+<image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/no_icon.png?raw=true" width="240"/></div>
+
+
+#### 不设置title()
+<div  >
+<image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/no_title.png?raw=true" width="240"/>
+</div>
 
 
