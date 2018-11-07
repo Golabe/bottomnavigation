@@ -6,10 +6,7 @@
 
 
 
-## gradle 添加
-```xml
-implementation 'top.golabe.bottomnavigation:library:1.0.0'
-```
+
 ### fragments()和viewPager()方法不能同时使用
 ### fragments()和viewPager()方法不能同时使用
 ### fragments()和viewPager()方法不能同时使用
