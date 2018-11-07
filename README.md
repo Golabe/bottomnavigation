@@ -8,6 +8,10 @@
 ```xml
 implementation 'top.golabe.bottomnavigation:library:1.0.0'
 ```
+### fragments()和viewPager()方法不能同时使用
+### fragments()和viewPager()方法不能同时使用
+### fragments()和viewPager()方法不能同时使用
+
 ## 使用
 在xml布局里面添加 BottomNavigationView容器
 ```xml
@@ -98,7 +102,10 @@ implementation 'top.golabe.bottomnavigation:library:1.0.0'
     defaultSelected(int)
     bgColor(int)
     navigationHeight(int)
+    fragments(int,class)
+    viewPager(int,class)
     
+
 #### 不设置icon()
 <div  >
 <image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/no_icon.png?raw=true" width="240"/></div>
