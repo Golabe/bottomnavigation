@@ -57,7 +57,6 @@ public class BottomNavigationViewBuilder {
         mBnView.setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
             @Override
             public void onNavigationItemSelected(int position) {
-
                 if (fragments != null && fragments.size() > 0) {
                     if (builder.items.size() == fragments.size()) {
                         switchFragment(position);
