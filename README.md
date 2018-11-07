@@ -4,7 +4,10 @@
 <image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/description.gif?raw=true"/ width="260">
 </div>
 
-
+## gradle 添加
+```xml
+implementation 'top.golabe.bottomnavigation:library:1.0.0'
+```
 ## 使用
 在xml布局里面添加 BottomNavigationView容器
 ```xml
