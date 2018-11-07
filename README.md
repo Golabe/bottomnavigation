@@ -2,6 +2,8 @@
 
 <image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/description.gif?raw=true" width="260"> </iamge>
 <image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/viewPager.gif?raw=true" width="260"> </iamge>
+<image src="https://github.com/Golabe/bottomnavigation/blob/master/gif/iconSize.gif?raw=true" width="260"> </iamge>
+
 
 
 ## gradle 添加
