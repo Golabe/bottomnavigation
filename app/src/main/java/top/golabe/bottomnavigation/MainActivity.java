@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final BottomNavigationViewBuilder navigationViewBuilder = new BottomNavigationViewBuilder.Builder(this)
+        BottomNavigationViewBuilder navigationViewBuilder = new BottomNavigationViewBuilder.Builder(this)
                 .findView(R.id.bnv_bottom_navigation_view)
                 .addItem(new BottomNavigationItemBuilder.Builder(this)
                         .title("精选")
@@ -53,15 +53,13 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "再次选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
-                .bgColor(Color.WHITE)
-
-                .setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
+                .bgColor(Color.WHITE).setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
                     @Override
                     public void onNavigationItemSelected(int position) {
                         Toast.makeText(MainActivity.this, "选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
-                .fragments(R.id.fl_container,FragmentA.class,FragmentB.class,FragmentC.class,FragmentD.class)
+                .fragments(R.id.fl_container, FragmentA.class, FragmentB.class, FragmentC.class, FragmentD.class)
                 .defaultSelected(2)
                 .navigationHeight(52F)
                 .build();

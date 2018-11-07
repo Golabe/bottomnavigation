@@ -26,7 +26,6 @@ import static top.golabe.library.DefaultValue.DEFAULT_VALUE;
 
 public class BottomNavigationViewBuilder {
     private static final String TAG = "BottomNavigationViewBui";
-    private BottomNavigationView mBnView;
     private Activity activity;
     private List<Class> fragments;
     private Map<Integer, Fragment> frgMap;
@@ -37,24 +36,24 @@ public class BottomNavigationViewBuilder {
 
     public BottomNavigationViewBuilder(final Builder builder) {
         this.activity = builder.activity.get();
-        this.mBnView = builder.bottomNavigationView;
+        BottomNavigationView mBottomNavigationView = builder.bottomNavigationView;
         this.containerId = builder.containerId;
         this.fragments = builder.fragments;
         this.defaultSelected = builder.defaultSelected;
         this.onNavigationItemSelectedListener = builder.onNavigationItemSelectedListener;
-        mBnView.setNavigationHeight(builder.navigationHeight);
-        mBnView.addItemView(builder.items);
-        mBnView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        mBnView.setOnReselectListener(builder.onReselectListener);
-        mBnView.setDefaultSelected(defaultSelected);
-        mBnView.setBgColor(builder.bgColor);
+        mBottomNavigationView.setNavigationHeight(builder.navigationHeight);
+        mBottomNavigationView.addItemView(builder.items);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        mBottomNavigationView.setOnReselectListener(builder.onReselectListener);
+        mBottomNavigationView.setDefaultSelected(defaultSelected);
+        mBottomNavigationView.setBgColor(builder.bgColor);
         if (fragments != null && fragments.size() > 0) {
             if (builder.items.size() == fragments.size()) {
                 initFragments();
             }
         }
 
-        mBnView.setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
+        mBottomNavigationView.setOnNavigationItemSelectedListener(new OnNavigationItemSelectedListener() {
             @Override
             public void onNavigationItemSelected(int position) {
                 if (fragments != null && fragments.size() > 0) {
@@ -80,18 +79,18 @@ public class BottomNavigationViewBuilder {
     }
 
     private Fragment newInstanceFrag(int index) {
-        Fragment calsss = null;
+        Fragment fragment = null;
         if (fragments != null && fragments.size() > 0) {
             try {
-                calsss = (Fragment) fragments.get(index).newInstance();
-                frgMap.put(index, calsss);
+                fragment = (Fragment) fragments.get(index).newInstance();
+                frgMap.put(index, fragment);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InstantiationException e) {
                 e.printStackTrace();
             }
         }
-        return calsss;
+        return fragment;
     }
 
     private void switchFragment(int index) {
@@ -185,7 +184,6 @@ public class BottomNavigationViewBuilder {
 
         public BottomNavigationViewBuilder build() {
             return new BottomNavigationViewBuilder(this);
-
         }
     }
 }
