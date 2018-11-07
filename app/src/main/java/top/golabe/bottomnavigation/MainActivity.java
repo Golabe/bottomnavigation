@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
-                .fragments(R.id.fl_container, FragmentA.class, FragmentB.class, FragmentC.class, FragmentD.class)
+                .viewPager(R.id.vp_container,FragmentA.class,FragmentB.class,FragmentC.class,FragmentD.class)
                 .defaultSelected(2)
                 .navigationHeight(52F)
                 .build();
