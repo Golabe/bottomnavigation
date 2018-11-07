@@ -4,18 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_container"
-        android:layout_above="@id/bnv_bottom_navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@id/bnv_bottom_navigation_view" />
+
     <top.golabe.library.widget.BottomNavigationView
-        android:elevation="@dimen/bottom_navigation_elevation"
         android:id="@+id/bnv_bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:elevation="@dimen/bottom_navigation_elevation" />
 
 
 </RelativeLayout>

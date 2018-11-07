@@ -1,13 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-// 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-// 这个version影响后面的引用
-version = "1.0.0"
-android {
-    resourcePrefix "golabe_bottom_navigation" //随意填写
-    compileSdkVersion 28
 
+def libname = 'BottomNavigation'//项目的名字 这个与之后生成的路径无关，单纯是在网站上的显示
+def libdesc = 'BottomNavigation' //项目的名字 这个与之后生成的路径无关，单纯是在网站上的显示
+version = rootProject.ext.version//版本号，这个我们写在ext中了，没看到的朋友，往前看
+group = rootProject.ext.group//这个就是路径名的group了
+android {
+    compileSdkVersion 28
+    lintOptions {
+        abortOnError false
+    }
 
 
     defaultConfig {
@@ -37,58 +40,82 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+//生成源文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+//生成文档
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options.encoding "UTF-8"
+    options.charSet 'UTF-8'
+    options.author true
+    options.version true
+    failOnError false
+}
 
-def siteUrl = 'https://github.com/Golabe/bottomnavigation'   // 项目的主页
-def gitUrl = 'https://github.com/Golabe/bottomnavigation'   // Git仓库的url
-group = "top.golabe.bottomnavigation"
+//文档打包成jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+//拷贝javadoc文件
+task copyDoc(type: Copy) {
+    from "${buildDir}/docs/"
+    into "docs"
+}
+
+//上传到jcenter所需要的源码文件
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// 配置maven库，生成POM.xml文件
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
         pom {
             project {
-                packaging 'aar'
-                // Add your description here
-                name 'Android bottomNavigation library'     //项目的描述 你可以多写一点
+                packaging rootProject.ext.packaging
+                name libname
                 url siteUrl
-                // Set your license
                 licenses {
                     license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        name libname
+                        url rootProject.ext.siteUrl
                     }
                 }
                 developers {
                     developer {
-                        id 'golabe'      //填写的一些基本信息
-                        name 'quanyue'
-                        email '2643552374@qq.com'
+                        id rootProject.ext.id
+                        name rootProject.ext.name
+                        email rootProject.ext.email
                     }
                 }
                 scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
+                    connection rootProject.ext.gitUrl
+                    developerConnection rootProject.ext.gitUrl
+                    url rootProject.ext.siteUrl
                 }
             }
         }
     }
 }
-tasks.withType(Javadoc){
-    options.addStringOption('Xdoclint：none',' - quiet')
-    options.addStringOption('encoding','UTF-8')
-    options.addStringOption('charSet','UTF-8')
-}
-Properties properties = new Properties()
+Properties properties = new Properties()//先要读取local.properties中的name和key
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
+    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "BottomNavigation"   //发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
+        name = libname    //发布到JCenter上的项目名字，必须填写
+        desc = libdesc    //项目描述
+        websiteUrl = rootProject.ext.siteUrl
+        vcsUrl = rootProject.ext.gitUrl
         licenses = ["Apache-2.0"]
         publish = true
     }

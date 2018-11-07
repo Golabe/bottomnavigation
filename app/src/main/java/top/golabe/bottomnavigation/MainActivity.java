@@ -40,13 +40,7 @@ public class MainActivity extends AppCompatActivity {
                         .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
                         .icon(R.mipmap.map, R.mipmap.map)
                         .build())
-                .addItem(new BottomNavigationItemBuilder.Builder(this)
-                        .title("Me")
-                        .titleSize(12f)
-                        .tint(Color.parseColor("#8a8a8a"), Color.parseColor("#2c2c2c"))
-                        .titleColor(Color.parseColor("#bfbfbf"), Color.parseColor("#2c2c2c"))
-                        .icon(R.mipmap.me, R.mipmap.me)
-                        .build())
+
                 .setOnReselectListener(new OnReselectListener() {
                     @Override
                     public void onReselect(int position) {
@@ -59,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "选中" + position, Toast.LENGTH_SHORT).show();
                     }
                 })
-                .viewPager(R.id.vp_container,FragmentA.class,FragmentB.class,FragmentC.class,FragmentD.class)
+                .viewPager(R.id.vp_container,FragmentA.class,FragmentB.class,FragmentC.class)
                 .defaultSelected(2)
                 .navigationHeight(52F)
                 .build();
