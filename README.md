@@ -11,6 +11,12 @@
 ### fragments()和viewPager()方法不能同时使用
 ### fragments()和viewPager()方法不能同时使用
 
+
+### Gradle 添加
+```xml
+implementation 'top.golabe.BottomNavigation:library:1.1.1'
+```
+
 ## fragment 使用
 在xml布局里面添加 BottomNavigationView容器
 ```xml
